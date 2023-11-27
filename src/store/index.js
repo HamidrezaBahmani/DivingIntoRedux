@@ -28,4 +28,5 @@ const store = createStore(counterReducer);
 
 //7- now we make this redux store we should make it
 //available for other component
+//8-we just need to provide it once (go to main index.js file)
 export default store;
