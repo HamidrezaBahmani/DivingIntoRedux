@@ -16,8 +16,8 @@ const Counter = () => {
     dispatch(counterActions.decrement());
   };
 
-  const counter = useSelector((state) => state.counter);
-  const show = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  const show = useSelector((state) => state.counter.showCounter);
   const toggleCounterHandler = () => {
     dispatch(counterActions.toggleCounter());
   };
