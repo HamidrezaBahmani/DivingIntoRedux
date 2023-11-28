@@ -14,6 +14,11 @@ const Counter = () => {
     //21-a action is obj with type property
     dispatch({ type: "increament" });
   };
+
+  const increaseHandler = () => {
+    dispatch({ type: "increase", amount: 5 });
+  };
+
   const decrementHandler = () => {
     dispatch({ type: "decrement" });
   };
@@ -22,17 +27,21 @@ const Counter = () => {
   //for i.e we want to extract state=>state.counter
   //redux automatically setup the subscrition for store for this component
   const counter = useSelector((state) => state.counter);
-  const toggleCounterHandler = () => {};
+  const show = useSelector((state) => state.showCounter);
+  const toggleCounterHandler = () => {
+    dispatch({ type: "toggle" });
+  };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
       {/* 15-use counter */}
-      <div className={classes.value}>{counter}</div>
+      {show && <div className={classes.value}>{counter}</div>}
       {/* 16- for dipatching action first setup the button */}
       <div>
         {/* 22-wire up functioms with buttons*/}
         <button onClick={increamtHandler}>Increment</button>
+        <button onClick={increaseHandler}>Increase By 5</button>
         <button onClick={decrementHandler}>Decrement</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
